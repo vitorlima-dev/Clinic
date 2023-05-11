@@ -1,4 +1,4 @@
-package com.clinic.system.service.validation.Consultation;
+package com.clinic.system.service.validation.consultation;
 
 import com.clinic.system.domain.consultation.ConsultationInputDto;
 import com.clinic.system.domain.doctor.DoctorRepository;
