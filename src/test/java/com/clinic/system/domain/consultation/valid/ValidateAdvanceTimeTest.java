@@ -13,7 +13,7 @@ public class ValidateAdvanceTimeTest {
     @Test
     @DisplayName("should return error when 30 minutes lead time is not respected")
     public void scene_1(){
-        this.inputDto = new ConsultationInputDto( Long.valueOf("1"),Long.valueOf("1"), LocalDateTime.now().plusMinutes(25));
+        this.inputDto = new ConsultationInputDto( 1l,1l, LocalDateTime.now().plusMinutes(25));
         var ex = assertThrows(CustomException.class,
                 () -> validateAdvanceTime.validate(inputDto));
 
@@ -22,7 +22,7 @@ public class ValidateAdvanceTimeTest {
     @Test
     @DisplayName("must return the code 0 when the consultation schedule is 30 minutes in advance")
     public void scene_2(){
-        this.inputDto = new ConsultationInputDto( Long.valueOf("1"),Long.valueOf("1"), LocalDateTime.now().plusMinutes(30));
+        this.inputDto = new ConsultationInputDto(1l,1l, LocalDateTime.now().plusMinutes(30));
         assertEquals(0, validateAdvanceTime.validate(inputDto));
     }
 }
