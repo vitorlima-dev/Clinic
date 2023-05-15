@@ -2,7 +2,7 @@ package com.clinic.system.controller;
 
 import com.clinic.system.domain.consultation.ConsultationInputDto;
 import com.clinic.system.domain.consultation.ConsultationOutputDto;
-import com.clinic.system.service.ConsultationService;
+import com.clinic.system.domain.consultation.ConsultationService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

@@ -1,4 +1,4 @@
-package com.clinic.system.service;
+package com.clinic.system.domain.doctor;
 
 import com.clinic.system.domain.doctor.Doctor;
 import com.clinic.system.domain.doctor.DoctorInputDto;

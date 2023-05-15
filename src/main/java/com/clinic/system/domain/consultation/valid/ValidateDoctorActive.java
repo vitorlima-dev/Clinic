@@ -1,8 +1,8 @@
-package com.clinic.system.service.validation.consultation;
+package com.clinic.system.domain.consultation.valid;
 
 import com.clinic.system.domain.consultation.ConsultationInputDto;
 import com.clinic.system.domain.doctor.DoctorRepository;
-import com.clinic.system.service.validation.Valid;
+import com.clinic.system.domain.consultation.valid.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

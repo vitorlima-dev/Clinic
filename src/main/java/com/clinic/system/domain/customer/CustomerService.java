@@ -1,4 +1,4 @@
-package com.clinic.system.service;
+package com.clinic.system.domain.customer;
 
 import com.clinic.system.domain.customer.Customer;
 import com.clinic.system.domain.customer.CustomerInputDto;

@@ -15,4 +15,9 @@ public class ConsultationInputDto {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy/MM/dd HH:mm")
     private LocalDateTime consultationDateTime;
 
+    public ConsultationInputDto(Long customerId, Long doctorId, LocalDateTime consultationDateTime) {
+        this.customer_id = customerId;
+        this.doctor_id = doctorId;
+        this.consultationDateTime = consultationDateTime;
+    }
 }

@@ -1,11 +1,14 @@
-package com.clinic.system.service.validation;
+package com.clinic.system.domain.consultation.valid;
 
 import com.clinic.system.infrastructure.handleError.CustomException;
+
 public abstract class Valid<T>{
-    public void validate(T data){
+    public int validate(T data){
         if (violated(data)){
             throw new CustomException(msgError(data));
         }
+        System.out.println("exited code 0");
+        return 0;
     }
     public abstract boolean violated(T data);
     public abstract String msgError(T data);

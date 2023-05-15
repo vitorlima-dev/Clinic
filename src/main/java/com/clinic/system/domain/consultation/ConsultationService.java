@@ -1,9 +1,8 @@
-package com.clinic.system.service;
+package com.clinic.system.domain.consultation;
 
-import com.clinic.system.domain.consultation.Consultation;
-import com.clinic.system.domain.consultation.ConsultationInputDto;
-import com.clinic.system.domain.consultation.ConsultationRepository;
-import com.clinic.system.service.validation.Valid;
+import com.clinic.system.domain.consultation.valid.Valid;
+import com.clinic.system.domain.customer.CustomerService;
+import com.clinic.system.domain.doctor.DoctorService;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.BeanUtils;

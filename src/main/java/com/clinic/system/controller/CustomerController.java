@@ -2,7 +2,7 @@ package com.clinic.system.controller;
 
 import com.clinic.system.domain.customer.CustomerOutputDto;
 import com.clinic.system.domain.customer.CustomerInputDto;
-import com.clinic.system.service.CustomerService;
+import com.clinic.system.domain.customer.CustomerService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
