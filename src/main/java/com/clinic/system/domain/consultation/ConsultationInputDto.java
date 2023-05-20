@@ -12,7 +12,6 @@ public class ConsultationInputDto {
     @NotNull
     private Long doctor_id;
     @NotNull
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy/MM/dd HH:mm")
     private LocalDateTime consultationDateTime;
 
     public ConsultationInputDto(Long customerId, Long doctorId, LocalDateTime consultationDateTime) {

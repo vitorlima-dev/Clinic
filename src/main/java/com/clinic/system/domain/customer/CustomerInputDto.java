@@ -3,11 +3,12 @@ package com.clinic.system.domain.customer;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 import java.time.LocalDate;
 
-@Getter
+@Getter @AllArgsConstructor
 public class CustomerInputDto {
 
     @NotBlank

@@ -1,12 +1,13 @@
 package com.clinic.system.domain.customer;
 
 import jakarta.persistence.Embeddable;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
 
 @Getter @Setter
-@Embeddable
+@Embeddable @AllArgsConstructor
 public class Address {
     private String street;
     private int number;
