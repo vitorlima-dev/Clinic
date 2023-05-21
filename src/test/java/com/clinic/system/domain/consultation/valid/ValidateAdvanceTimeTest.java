@@ -2,7 +2,7 @@ package com.clinic.system.domain.consultation.valid;
 
 import static org.junit.Assert.*;
 import com.clinic.system.domain.consultation.ConsultationInputDto;
-import com.clinic.system.infrastructure.handleError.CustomException;
+import com.clinic.system.infra.exception.CustomException;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import java.time.LocalDateTime;

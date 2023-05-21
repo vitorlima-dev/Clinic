@@ -1,9 +1,6 @@
 package com.clinic.system.domain.doctor;
 
-import com.clinic.system.domain.doctor.Doctor;
-import com.clinic.system.domain.doctor.DoctorInputDto;
-import com.clinic.system.domain.doctor.DoctorRepository;
-import com.clinic.system.infrastructure.handleError.CustomException;
+import com.clinic.system.infra.exception.CustomException;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.BeanUtils;

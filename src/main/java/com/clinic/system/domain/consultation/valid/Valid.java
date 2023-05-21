@@ -1,6 +1,6 @@
 package com.clinic.system.domain.consultation.valid;
 
-import com.clinic.system.infrastructure.handleError.CustomException;
+import com.clinic.system.infra.exception.CustomException;
 
 public abstract class Valid<T>{
     public int validate(T data){

@@ -20,10 +20,8 @@ public class ValidateIfDoctorHasConsultationSameDateTime extends Valid<Consultat
         var startDateTime = data.getConsultationDateTime().plusMinutes(-59);
         var endDateTime = data.getConsultationDateTime().plusMinutes(59);
 
-        var isViolated = !repository.findByDoctorAndConsultationDateTimeBetween(
+        return !repository.findByDoctorAndConsultationDateTimeBetween(
                 doctor,startDateTime,endDateTime).isEmpty();
-
-        return isViolated ;
     }
     @Override
     public String msgError(ConsultationInputDto data) {

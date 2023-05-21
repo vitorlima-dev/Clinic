@@ -17,6 +17,7 @@ import org.springframework.boot.test.json.JacksonTester;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -38,6 +39,7 @@ class ConsultationControllerTest {
     @Autowired
     private JacksonTester<ConsultationOutputDto> consultationOutputDtoJacksonTester;
     @Test
+    @WithMockUser
     @DisplayName("Should return status 201 and expected json")
     void scene_1() throws Exception{
         var consultationInput = new ConsultationInputDto(1L, 1L, LocalDateTime.now());
@@ -62,21 +64,10 @@ class ConsultationControllerTest {
 
     private Customer customerData(){
         var customerInputDto = new CustomerInputDto(
-                "test","00000000000",addressData(),LocalDate.now());
+                "test","00000000000",null,LocalDate.now());
         return new Customer(customerInputDto);
     }
 
-    private Address addressData(){
-        return new Address(
-                "123 Main Street",
-                456,
-                "Apt 7",
-                "Downtown",
-                "New York",
-                "NY",
-                "12345"
-        );
-    }
     private Doctor doctorData(){
         var doctorInputDto = new DoctorInputDto(
                 "test",

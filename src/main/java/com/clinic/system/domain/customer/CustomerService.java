@@ -1,9 +1,6 @@
 package com.clinic.system.domain.customer;
 
-import com.clinic.system.domain.customer.Customer;
-import com.clinic.system.domain.customer.CustomerInputDto;
-import com.clinic.system.domain.customer.CustomerRepository;
-import com.clinic.system.infrastructure.handleError.CustomException;
+import com.clinic.system.infra.exception.CustomException;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.BeanUtils;

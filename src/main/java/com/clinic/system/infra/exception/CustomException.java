@@ -1,4 +1,4 @@
-package com.clinic.system.infrastructure.handleError;
+package com.clinic.system.infra.exception;
 
 public class CustomException extends RuntimeException {
     public CustomException() {

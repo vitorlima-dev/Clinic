@@ -1,6 +1,7 @@
 package com.clinic.system.controller;
 
 import com.clinic.system.domain.doctor.*;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.json.AutoConfigureJsonTesters;
@@ -11,6 +12,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.HttpStatus;
 import static org.mockito.ArgumentMatchers.any;
 import org.springframework.http.MediaType;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.when;
@@ -28,14 +30,17 @@ class DoctorControllerTest {
     @MockBean
     DoctorRepository repository;
     @Test
+    @DisplayName("should return status code 403 - FORBIDDEN")
     void scene_1() throws Exception {
         var response = mvc.perform(post("/doctor"))
                 .andReturn().getResponse();
 
-        assertThat(response.getStatus()).isEqualTo(HttpStatus.BAD_REQUEST.value());
+        assertThat(response.getStatus()).isEqualTo(HttpStatus.FORBIDDEN.value());
     }
 
     @Test
+    @DisplayName("should return status code 201 and Json Expected")
+    @WithMockUser
     void scene_2() throws Exception {
         var doctorInput = new DoctorInputDto("name", "11111111111", Specialization.PSYCHOLOGIST);
 

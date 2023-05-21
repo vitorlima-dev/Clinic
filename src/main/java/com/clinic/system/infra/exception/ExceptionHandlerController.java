@@ -1,4 +1,4 @@
-package com.clinic.system.infrastructure.handleError;
+package com.clinic.system.infra.exception;
 
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.http.HttpStatus;
