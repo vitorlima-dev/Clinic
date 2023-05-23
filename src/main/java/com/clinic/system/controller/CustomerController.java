@@ -3,6 +3,7 @@ package com.clinic.system.controller;
 import com.clinic.system.domain.customer.CustomerOutputDto;
 import com.clinic.system.domain.customer.CustomerInputDto;
 import com.clinic.system.domain.customer.CustomerService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 @RestController
 @RequestMapping("/customer")
+@SecurityRequirement(name = "bearer-key")
 public class CustomerController {
     @Autowired
     CustomerService service;

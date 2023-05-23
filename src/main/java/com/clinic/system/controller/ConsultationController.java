@@ -3,6 +3,7 @@ package com.clinic.system.controller;
 import com.clinic.system.domain.consultation.ConsultationInputDto;
 import com.clinic.system.domain.consultation.ConsultationOutputDto;
 import com.clinic.system.domain.consultation.ConsultationService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,6 +13,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 @RestController
 @RequestMapping("/consultation")
+@SecurityRequirement(name = "bearer-key")
 public class ConsultationController {
     @Autowired
     private ConsultationService service;
