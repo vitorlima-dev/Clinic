@@ -9,6 +9,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -41,20 +42,22 @@ public class ConsultationService {
         repository.save(consultation);
     }
     public List<Consultation> findAll(){
-        return repository.findAll();
+        return repository.findAllByCancellationDateTimeIsNull();
     }
+    @Transactional
     public void delete(Long id){
         var consultation = findByConsultationId(id);
-        repository.delete(consultation);
+        consultation.setCancellationDateTime(LocalDateTime.now());
+        repository.save(consultation);
     }
     public Consultation findByConsultationId(Long id){
-        var consultation = repository.findById(id);
+        var consultation = repository.findByConsultationIdAndCancellationDateTimeIsNull(id);
 
-        if(consultation.isEmpty()){
+        if(consultation == null){
             throw  new EntityNotFoundException("Consultation Not Fond");
         }
 
-        return consultation.get();
+        return consultation;
     }
 
 

@@ -11,7 +11,7 @@ public record ConsultationOutputDto (
         LocalDateTime consultationDateTime
     ){
     public ConsultationOutputDto(Consultation consultation) {
-        this(   consultation.getConsultation_id(),
+        this(   consultation.getConsultationId(),
                 new CustomerOutputDto(consultation.getCustomer()),
                 new DoctorOutputDto(consultation.getDoctor()),
                 consultation.getConsultationDateTime());

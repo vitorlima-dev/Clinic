@@ -20,7 +20,7 @@ public class ConsultationController {
     @PostMapping
     public ResponseEntity create(@Valid @RequestBody ConsultationInputDto consultationDto, UriComponentsBuilder uriBuilder){
         var consultation = service.create(consultationDto);
-        var uri = uriBuilder.path("{id}").buildAndExpand(consultation.getConsultation_id()).toUri();
+        var uri = uriBuilder.path("{id}").buildAndExpand(consultation.getConsultationId()).toUri();
         return ResponseEntity.created(uri).body(new ConsultationOutputDto(consultation));
     }
     @PutMapping("{id}")

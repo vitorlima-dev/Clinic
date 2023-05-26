@@ -10,5 +10,6 @@ import java.util.List;
 @Repository
 public interface ConsultationRepository  extends JpaRepository<Consultation, Long> {
     List<Consultation> findByDoctorAndConsultationDateTimeBetween(Doctor doctor, LocalDateTime startDateTime, LocalDateTime endDateTime);
-
+    List<Consultation> findAllByCancellationDateTimeIsNull();
+    Consultation findByConsultationIdAndCancellationDateTimeIsNull(Long Id);
 }
