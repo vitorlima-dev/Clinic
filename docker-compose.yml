@@ -1,15 +1,22 @@
 version: '3'
 services:
-  web:
-    build: .
-    ports:
-      - "8080:8080"
-    env_file: .env
-    depends_on:
-      - db
   db:
     image: postgres:13
     restart: always
-    env_file: .env
+    environment:
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     ports:
       - 5432:5432
+    container_name: postgres_db
+
+  backend:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      DB_URL: jdbc:postgresql://db:5432/postgres
+      DB_USER: postgres
+      DB_PASSWORD: ${POSTGRES_PASSWORD}
+    container_name: backend
+    depends_on:
+      - db
