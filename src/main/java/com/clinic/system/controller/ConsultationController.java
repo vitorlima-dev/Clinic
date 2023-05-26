@@ -1,5 +1,6 @@
 package com.clinic.system.controller;
 
+import com.clinic.system.domain.consultation.CancellationInputDto;
 import com.clinic.system.domain.consultation.ConsultationInputDto;
 import com.clinic.system.domain.consultation.ConsultationOutputDto;
 import com.clinic.system.domain.consultation.ConsultationService;
@@ -18,7 +19,7 @@ public class ConsultationController {
     @Autowired
     private ConsultationService service;
     @PostMapping
-    public ResponseEntity create(@Valid @RequestBody ConsultationInputDto consultationDto, UriComponentsBuilder uriBuilder){
+    public ResponseEntity create(@RequestBody @Valid ConsultationInputDto consultationDto, UriComponentsBuilder uriBuilder){
         var consultation = service.create(consultationDto);
         var uri = uriBuilder.path("{id}").buildAndExpand(consultation.getConsultationId()).toUri();
         return ResponseEntity.created(uri).body(new ConsultationOutputDto(consultation));
@@ -39,8 +40,8 @@ public class ConsultationController {
                 service.findByConsultationId(id)));
     }
     @DeleteMapping("{id}")
-    public ResponseEntity delete(@PathVariable Long id){
-        service.delete(id);
+    public ResponseEntity delete(@RequestBody @Valid CancellationInputDto cancellationInputDto, @PathVariable Long id){
+        service.delete(cancellationInputDto, id);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 }

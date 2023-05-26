@@ -26,6 +26,7 @@ public class Consultation {
     @Column(name = "consultation_date_time",nullable = false)
     private LocalDateTime consultationDateTime;
     private LocalDateTime cancellationDateTime;
+    private String cancellationReason;
     @UpdateTimestamp
     private LocalDateTime updateTimestamp;
     @CreationTimestamp

@@ -45,9 +45,10 @@ public class ConsultationService {
         return repository.findAllByCancellationDateTimeIsNull();
     }
     @Transactional
-    public void delete(Long id){
+    public void delete(CancellationInputDto cancellationInputDto ,Long id){
         var consultation = findByConsultationId(id);
         consultation.setCancellationDateTime(LocalDateTime.now());
+        consultation.setCancellationReason(cancellationInputDto.getCancellationReason());
         repository.save(consultation);
     }
     public Consultation findByConsultationId(Long id){
